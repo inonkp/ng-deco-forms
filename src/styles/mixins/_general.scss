@@ -1,0 +1,28 @@
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin minSize($minWidth, $minHeight: $minWidth) {
+  min-width: $minWidth;
+  min-height: $minHeight;
+}
+
+@mixin maxSize($maxWidth, $maxHeight: $maxWidth) {
+  max-width: $maxWidth;
+  max-height: $maxHeight;
+}
+
+@mixin text($fontSize, $color, $lineHeight, $letterSpacing: normal, $fontWeight: normal) {
+  color: $color;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}

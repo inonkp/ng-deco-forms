@@ -1,0 +1,180 @@
+// $first-field: ".deco-field.deco-field-first";
+// $row-item: ".deco-field.deco-row-item";
+// $deco-group: ".deco-field.deco-field-group";
+// $deco-first-in-group: ".deco-field > .deco-field";
+// $has-change-color: rgb(255 235 0 / 30%);
+
+// @mixin center() {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+  
+//   @mixin size($width, $height: $width) {
+//     width: $width;
+//     height: $height;
+//   }
+  
+//   @mixin minSize($minWidth, $minHeight: $minWidth) {
+//     min-width: $minWidth;
+//     min-height: $minHeight;
+//   }
+  
+//   @mixin maxSize($maxWidth, $maxHeight: $maxWidth) {
+//     max-width: $maxWidth;
+//     max-height: $maxHeight;
+//   }
+  
+//   @mixin text($fontSize, $color, $lineHeight, $letterSpacing: normal, $fontWeight: normal) {
+//     color: $color;
+//     font-weight: $fontWeight;
+//     font-size: $fontSize;
+//     line-height: $lineHeight;
+//     letter-spacing: $letterSpacing;
+//   }
+
+//   @mixin font-22-33-bold($color: $etsy-text-1) {
+//     font-size: 22px;
+//     font-weight: 700;
+//     line-height: 28px;
+//     color: $color;
+//   }
+  
+//   @mixin font-22-33-semi-bold($color: $etsy-text-1) {
+//     @include font-22-33-bold($color);
+//     font-weight: 600;
+//   }
+  
+//   @mixin font-22-33-medium($color: $etsy-text-1) {
+//     @include font-22-33-bold($color);
+//     font-weight: 500;
+//   }
+  
+  
+//   @mixin font-18-27-bold($color: $etsy-text-1) {
+//     font-size: 18px;
+//     font-weight: 600;
+//     line-height: 27px;
+//     color: $color;
+//   }
+  
+  
+//   @mixin font-16-24-medium($color: $etsy-text-1) {
+//     font-size: 16px;
+//     font-weight: 500;
+//     line-height: 24px;
+//     color: $color;
+//   }
+  
+//   @mixin font-16-24-light($color: $etsy-text-1) {
+//     @include font-16-24-medium($color);
+//     font-weight: 400;
+//   }
+  
+  
+//   @mixin font-14-21-medium($color: $etsy-text-1) {
+//     font-size: 16px;
+//     font-weight: 500;
+//     line-height: 21px;
+//     color: $color;
+//   }
+  
+//   @mixin font-14-18-400($color: $etsy-text-1) {
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 18px;
+//     color: $color;
+//   }
+  
+  
+
+
+// .deco-simple-input {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 8px;
+
+//   &__field {
+//     @extend .form-control;
+//   }
+
+//   &__label {
+//     @include font-14-21-medium($etsy-text-2);
+//   }
+
+//   &__hint {
+//     @include font-14-18-400();
+//   }
+// }
+
+// .deco-text, .deco-number, .deco-textarea {
+//   @extend .form-control;
+// }
+
+// .deco-checkbox {
+//   @extend .form-check-input;
+//   cursor: pointer;
+// }
+
+// .deco-select {
+//   @extend .form-select
+// }
+
+// @import '../mixins';
+
+// .deco-field-title {
+  
+  
+//   &__label {
+//     @include font-18-27-bold();
+//     opacity: 0.8;
+//   }
+
+//   &__field {
+
+//   }
+// }
+
+// .deco-field-label {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 8px;
+
+//   &__label {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//   }
+
+//   &__text {
+//     @include font-14-21-medium($etsy-text-2);
+//   }
+
+//   &__icon {
+//     cursor: pointer;
+//     color: $etsy-bg-links;
+
+//     &.danger-icon {
+//       color: $etsy-danger;
+//     }
+//   }
+// }
+
+// .deco-field-hint {
+//   &__text {
+//     @include font-14-18-400();
+//   }
+// }
+
+// .deco-checkbox-label {
+//   &__container {
+//     display: flex;
+//     gap: 10px;
+//   }
+
+//   &__text {
+//     @include font-16-24-medium($etsy-text-3);
+//     cursor: pointer;
+//     white-space: nowrap;
+//   }
+// }

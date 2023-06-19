@@ -1,0 +1,32 @@
+.etsy-form-field-container-35 {
+  display: block;
+  width: 35%;
+}
+
+.etsy-form-field-container-60 {
+  display: block;
+  width: 60%;
+}
+
+.etsy-form-field-container-45 {
+  display: block;
+  width: 45%;
+}
+
+.etsy-form-field-container-20 {
+  display: block;
+  width: 20%;
+}
+
+.etsy-form-row-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 24px;
+  height: 38px;
+}
+
+.etsy-form-row-container-75 {
+  @extend .etsy-form-row-container;
+  width: 75%;
+}

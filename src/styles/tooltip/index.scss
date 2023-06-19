@@ -1,0 +1,24 @@
+
+.danger-tooltip.tooltip  {
+    .tooltip-inner {
+      background-color: $etsy-danger;
+    }
+  
+      .tooltip-arrow::before {
+        border-left-color: $etsy-danger !important;
+    }
+  }
+  
+  
+  .warning-tooltip.tooltip  {
+    .tooltip-inner {
+      background-color: #ffc107;
+    }
+  
+      .tooltip-arrow::before {
+          border-left-color: #ffc107 !important;
+
+      }
+  }
+  
+  

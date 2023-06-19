@@ -1,0 +1,17 @@
+{
+  "name": "deco-forms",
+  "version": "0.2.2",
+  "peerDependencies": {
+    "@angular/common": ">=14.0.0",
+    "@angular/core": ">=14.0.0",
+    "@angular/forms": ">=14.0.0",
+    "ngx-autosize": ">=2.0.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "karma-coverage": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^3.0.3"
+  }
+}

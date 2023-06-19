@@ -1,0 +1,58 @@
+@import '../mixins';
+
+.deco-field-title {
+  
+  
+  &__label {
+    @include font-18-27-bold();
+    opacity: 0.8;
+  }
+
+  &__field {
+
+  }
+}
+
+.deco-field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__text {
+    @include font-14-21-medium($etsy-text-2);
+  }
+
+  &__icon {
+    cursor: pointer;
+    color: $etsy-bg-links;
+
+    &.danger-icon {
+      color: $etsy-danger;
+    }
+  }
+}
+
+.deco-field-hint {
+  &__text {
+    @include font-14-18-400();
+  }
+}
+
+.deco-checkbox-label {
+  &__container {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__text {
+    @include font-16-24-medium($etsy-text-3);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+}

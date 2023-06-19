@@ -1,0 +1,34 @@
+@import '../mixins';
+@import '../colors';
+// @import '../bootstrap';
+
+.deco-simple-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__field {
+    @extend .form-control;
+  }
+
+  &__label {
+    @include font-14-21-medium($etsy-text-2);
+  }
+
+  &__hint {
+    @include font-14-18-400();
+  }
+}
+
+.deco-text, .deco-number, .deco-textarea {
+  @extend .form-control;
+}
+
+.deco-checkbox {
+  @extend .form-check-input;
+  cursor: pointer;
+}
+
+.deco-select {
+  @extend .form-select
+}
