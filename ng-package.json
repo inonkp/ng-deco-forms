@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/deco-forms",
+  "dest": "../../dist/ng-deco-forms",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

@@ -1,5 +1,4 @@
 import { ApplicationRef, ChangeDetectorRef, ComponentRef, createComponent, Directive, EnvironmentInjector, forwardRef, Inject, Optional, inject, Injector, Input, Provider, StaticProvider, ViewContainerRef } from '@angular/core';
-import { EntityServices } from '@ngrx/data';
 import { GroupComponent } from './core/group/group.component';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 import { FORM_TARGET_TOKEN } from './directives/forms/deco-field.directive';
@@ -7,23 +6,8 @@ import { FIELD_CONFIG_TOKEN, FIELD_FORM_CONTROL_TOKEN, FORM_FIELDS_TOKEN, FORM_S
 import { collectFields, getFormRoot, getTargetToken } from './builders/utils';
 import { FORM_SUBMIT_OBSERVABLE_TOKEN } from './directives/submit.directive';
 import { Observable } from 'rxjs';
-
-const providers: Provider[] = [
-  {
-    provide: 'loading$', useFactory: (entityServices: EntityServices, formDirective: DecoFormDirective) => {
-      // return entityServices.getEntityCollectionService(formDirective.form.entity).loading$
-      return ''
-    }, deps: [EntityServices, forwardRef(() => DecoFormDirective)]
-  },
-  {
-    provide: 'form', useFactory: (formDirective: DecoFormDirective) => {
-      return formDirective.formGroup;
-    }, deps: [forwardRef(() => DecoFormDirective)]
-  }
-]
 @Directive({
   selector: '[deco-form]',
-  providers: providers,
   exportAs: 'decoForm'
 })
 export class DecoFormDirective {

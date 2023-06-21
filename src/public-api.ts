@@ -1,5 +1,5 @@
 /*
- * Public API Surface of deco-forms
+ * Public API Surface of ng-deco-forms
  */
 
 export * from './lib/deco-forms.module';

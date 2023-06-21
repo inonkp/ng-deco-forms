@@ -124,6 +124,6 @@ export function rootFactory<T>(root: any, props: Partial<T> = {}) {
 
 export const Listen = (func: () => ((value: any) => void)) => Provide({provide: FIELD_CHANGE_TRACKING_TOKEN, useFactory: func});
 export const Validator = (validator: ValidatorFn) => addValidator(validator)
-export const Form = (root: any) => rootFactory(root);
+export const Form = (root: any = GroupComponent) => rootFactory(root);
 
 export const targetConfig = getTargetToken

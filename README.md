@@ -3,6 +3,42 @@
 
 A forms library for Angular. Relying heavily on Angular's dependency injection mechanism makes this library incredibly flexible. Form fields are entirely described via Typescript decorators, making forms easier to maintain. Loosely inspired by Formly.
 
+# Table of contents
+
+- [Angular Decorated Forms](#angular-decorated-forms)
+  - [Basic Examples](#basic-examples)
+    - [Field Examples](#field-examples)
+      - [Text Input](#text-input)
+      - [Number Input](#number-input)
+      - [Label Wrapper](#label-wrapper)
+  - [Simple Usage](#simple-usage)
+    - [Add Wrappers](#add-wrappers)
+    - [Add Properties](#add-properties)
+      - [Single Properties](#single-properties)
+      - [Multiple Properties](#multiple-properties)
+    - [Add CSS Classes](#add-css-classes)
+    - [Add Providers](#add-providers)
+    - [Chaining Decorators](#chaining-decorators)
+  - [Usage Details](#usage-details)
+    - [Form Controls](#form-controls)
+    - [Typing](#typing)
+    - [Decorator Order](#decorator-order)
+  - [API](#api)
+    - [Decorators](#decorators)
+      - [Form](#form)
+      - [DecoField](#decofield)
+      - [Group](#group)
+      - [Wrap](#wrap)
+      - [Class](#class)
+      - [Provide](#provide)
+      - [Listen](#listen)
+    - [Components](#components)
+      - [Form](#form)
+      - [Group](#group)
+    - [Directives](#directives)
+      - [Form Directive](#form-directive)
+      - [Field Directive](#field-directive)
+    - [Tokens](#tokens)
 
 ## Basic Examples
 
