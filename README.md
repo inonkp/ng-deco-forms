@@ -39,7 +39,7 @@ A forms library for Angular. Relying heavily on Angular's dependency injection m
       - [Form Directive](#form-directive)
       - [Field Directive](#field-directive)
     - [Tokens](#tokens)
-
+  - [Bootstrap Implementation and Demo](#bootstrap-implementation-and-Demo)
 ## Basic Examples
 
 ### Field Examples
@@ -441,3 +441,9 @@ FIELD_CONFIG_TOKEN - the config of a field.
 FIELD_CHANGE_TRACKING_TOKEN - Use this to provide a function that will trigger on field changes.
 
 FORM_SUBMIT_TOKEN - Controls what happensn when a form submits.
+
+## Implementations
+
+### Bootstrap Implementation and Demo
+
+Check out the bootstrap implementation and a [Live Demo](https://www.npmjs.com/package/ng-deco-forms-bootstrap).
