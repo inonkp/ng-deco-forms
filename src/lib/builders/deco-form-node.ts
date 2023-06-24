@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ValidatorFn } from "@angular/forms";
+import { FormControl, FormGroup, ValidatorFn, AsyncValidatorFn, AsyncValidator } from "@angular/forms";
 import { InjectionToken, StaticProvider } from "@angular/core";
 import { getTargetToken } from "./utils";
 
@@ -22,7 +22,7 @@ export class DecoFormTarget extends DecoFormNode {
     }
 }
 
-export class DecoFormKeyedNode extends DecoFormTarget{
+export abstract class DecoFormKeyedNode extends DecoFormTarget{
 
     get token() {
         return getTargetToken(this.type);
@@ -33,20 +33,29 @@ export class DecoFormKeyedNode extends DecoFormTarget{
         super(type);
     }
 
+    abstract initControl(): void;
+
 }
 
 export class DecoFormGroup extends DecoFormKeyedNode {
 
     constructor(key: string, type: any, public classTarget: any) {
         super(key, type);
-        this.control = new FormGroup({});
     }
+
+    initControl() {
+        this.control = new FormGroup({}, this.validators);
+    }
+
 }
 
 export class DecoFormField extends DecoFormKeyedNode {
 
     constructor(key: string, type: any) {
         super(key, type);
-        this.control = new FormControl();
     }
+
+    initControl() {
+        this.control = new FormControl(null, this.validators);
+    }   
 }

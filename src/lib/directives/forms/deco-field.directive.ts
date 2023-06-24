@@ -1,5 +1,5 @@
-import { ApplicationRef, createComponent, Directive, EnvironmentInjector, Inject, InjectionToken, Injector, Input, StaticProvider, ViewContainerRef } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ApplicationRef, Component, ComponentRef, createComponent, Directive, EnvironmentInjector, Inject, InjectionToken, Injector, Input, StaticProvider, ViewContainerRef } from '@angular/core';
+import { FormGroup, FormGroupDirective} from '@angular/forms';
 import { DecoFormKeyedNode, DecoFormNode, DecoFormTarget } from '../../builders/deco-form-node';
 import { FIELD_CONFIG_TOKEN, FIELD_FORM_CONTROL_TOKEN, FIELD_PARENT_CONTROL_TOKEN, FIELD_PROP_KEY_TOKEN, FORM_FIELDS_TOKEN } from '../../builders/deco-form-tokens';
 import { collectFields, getFormTargetNode, getTargetToken } from '../../builders/utils';
@@ -62,7 +62,7 @@ export class DecoFieldDirective {
     return component;
   }
 
-  createWrapper(wrapper: DecoFormTarget, componentContent: any, injector: Injector ) {
+  createWrapper(wrapper: DecoFormTarget, componentContent: any, injector: Injector ): ComponentRef<any> {
     const component = this.createComponent(wrapper.type, [[componentContent.location.nativeElement]], injector);  
     component.location.nativeElement.classList.add(...wrapper.classes);
 
@@ -72,7 +72,7 @@ export class DecoFieldDirective {
 
   createDecoField(field: DecoFormNode, componentContent: any, injector: Injector) {
     
-    const fieldComponent =  this.createComponent(FieldComponent, [[componentContent.location.nativeElement]], injector);
+    const fieldComponent = this.createComponent(FieldComponent, [[componentContent.location.nativeElement]], injector);
     this.viewRef.insert(fieldComponent.hostView);
   }
 
@@ -91,7 +91,7 @@ export class DecoFieldDirective {
       }
     )
 
-    component.changeDetectorRef.markForCheck();
+    component.changeDetectorRef.detectChanges();
 
     return component;
   }
@@ -110,15 +110,15 @@ export class DecoFieldDirective {
     const target = this.target[field.key];
 
     const fields = collectFields(target);
+    field.initControl()
     if(target?.constructor) {
       this.processTarget(field, target.constructor);
     }
-    this.parentControl.addControl(field.key, field.control);
-    field.control.addValidators(field.validators);
 
     if(fields.length === 0) {
       field.control.setValue(target);
     }
+    this.parentControl.addControl(field.key, field.control);
 
     const targetInjector = Injector.create({
       providers: [
@@ -140,8 +140,8 @@ export class DecoFieldDirective {
       parent: this.injector
     })
     
-      const wrapped = this.wrapContent(field, component, targetInjector);
-      this.createDecoField(field, wrapped, targetInjector);
+    const wrapped = this.wrapContent(field, component, targetInjector);
+    this.createDecoField(field, wrapped, targetInjector);
 
   }
 }
