@@ -18,7 +18,7 @@ export class DecoFormComponent {
   @ViewChild('content', { static: true, read: ViewContainerRef })
   content: ViewContainerRef;
   
-  @ViewChild('ngForm', { static: true})
+  @ViewChild('f', { static: true})
   ngForm: NgForm;
 
   @Input('form-target')
@@ -26,7 +26,6 @@ export class DecoFormComponent {
 
   fields: DecoFormNode[];
   formGroup: FormGroup;
-
 
   constructor() {
     this.formGroup = new FormGroup({});

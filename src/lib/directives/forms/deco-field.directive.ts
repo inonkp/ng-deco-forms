@@ -1,11 +1,9 @@
 import { ApplicationRef, Component, ComponentRef, createComponent, Directive, EnvironmentInjector, Inject, InjectionToken, Injector, Input, StaticProvider, ViewContainerRef } from '@angular/core';
 import { FormGroup, FormGroupDirective} from '@angular/forms';
 import { DecoFormKeyedNode, DecoFormNode, DecoFormTarget } from '../../builders/deco-form-node';
-import { FIELD_CONFIG_TOKEN, FIELD_FORM_CONTROL_TOKEN, FIELD_PARENT_CONTROL_TOKEN, FIELD_PROP_KEY_TOKEN, FORM_FIELDS_TOKEN } from '../../builders/deco-form-tokens';
+import { FIELD_CONFIG_TOKEN, FIELD_FORM_CONTROL_TOKEN, FIELD_PARENT_CONTROL_TOKEN, FIELD_PROP_KEY_TOKEN, FORM_FIELDS_TOKEN, FORM_TARGET_TOKEN } from '../../builders/deco-form-tokens';
 import { collectFields, getFormTargetNode, getTargetToken } from '../../builders/utils';
 import { FieldComponent } from '../../core/field/field.component';
-
-export const FORM_TARGET_TOKEN = new InjectionToken<FormGroup>('form-target'); 
 
 interface FormTarget {
   constructor?: any;
@@ -40,7 +38,7 @@ export class DecoFieldDirective {
     return injector;
   }
 
-  wrapContent(field: DecoFormKeyedNode, component: any, parentInjector: Injector,
+  wrapContent(field: DecoFormKeyedNode, component: ComponentRef<any>, parentInjector: Injector,
      wrapperIndex: number = field.wrappers.length - 1) {
     const wrappers = field.wrappers;
     if(wrapperIndex < 0) {
@@ -76,7 +74,7 @@ export class DecoFieldDirective {
     this.viewRef.insert(fieldComponent.hostView);
   }
 
-  createComponent(type: any, content: Node[][], injector: Injector) {
+  createComponent(type: any, content: Node[][], injector: Injector): ComponentRef<any> {
     injector = Injector.create({
       providers: [
         { provide: FIELD_CONFIG_TOKEN, useExisting: getTargetToken(type) }

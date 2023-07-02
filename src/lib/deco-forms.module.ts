@@ -10,7 +10,6 @@ import { DecoFieldDirective } from './directives/forms/deco-field.directive';
 import { ChangeDirective } from './directives/change.directive';
 import { SubmitDirective } from './directives/submit.directive';
 
-
 @NgModule({
   declarations: [
     DecoFormComponent,
@@ -30,6 +29,7 @@ import { SubmitDirective } from './directives/submit.directive';
     DecoFormComponent,
     GroupComponent,
     DecoFormDirective,
+    DecoFieldDirective,
     ChangeDirective
   ],
 })

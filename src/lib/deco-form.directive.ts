@@ -1,8 +1,7 @@
 import { ApplicationRef, ChangeDetectorRef, ComponentRef, createComponent, Directive, EnvironmentInjector, forwardRef, Inject, Optional, inject, Injector, Input, Provider, StaticProvider, ViewContainerRef } from '@angular/core';
 import { GroupComponent } from './core/group/group.component';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
-import { FORM_TARGET_TOKEN } from './directives/forms/deco-field.directive';
-import { FIELD_CONFIG_TOKEN, FIELD_FORM_CONTROL_TOKEN, FORM_FIELDS_TOKEN, FORM_SUBMIT_TOKEN } from './builders/deco-form-tokens';
+import { FIELD_CONFIG_TOKEN, FIELD_FORM_CONTROL_TOKEN, FORM_FIELDS_TOKEN, FORM_SUBMIT_TOKEN, FORM_TARGET_TOKEN } from './builders/deco-form-tokens';
 import { collectFields, getFormRoot, getTargetToken } from './builders/utils';
 import { FORM_SUBMIT_OBSERVABLE_TOKEN } from './directives/submit.directive';
 import { Observable } from 'rxjs';
