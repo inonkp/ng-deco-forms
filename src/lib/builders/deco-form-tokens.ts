@@ -7,6 +7,7 @@ export const FIELD_FORM_CONTROL_TOKEN = new InjectionToken<FormControl | FormGro
 export const FIELD_PARENT_CONTROL_TOKEN = new InjectionToken<FormGroup>('field-parent-control');
 export const FIELD_PROP_KEY_TOKEN = new InjectionToken<string>('field-prop-key');
 export const FIELD_CHANGE_TRACKING_TOKEN = new InjectionToken<(value: any) => void>('field-change-tracking');
+export const FIELD_PUSH_VLAUE_TOKEN = new InjectionToken<(value: any) => void>('field-change-tracking');
 export const FORM_SUBMIT_TOKEN = new InjectionToken<() => void>('form-submit');
 export const FIELD_CONFIG_TOKEN = new InjectionToken<any>('field-config');
 export const FORM_TARGET_TOKEN = new InjectionToken<FormGroup>('form-target'); 
