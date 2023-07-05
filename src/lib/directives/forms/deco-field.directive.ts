@@ -108,16 +108,17 @@ export class DecoFieldDirective {
     const target = this.target[field.key];
 
     const fields = collectFields(target);
-    field.initControl()
     if(target?.constructor) {
       this.processTarget(field, target.constructor);
     }
-
-    if(fields.length === 0) {
-      field.control.setValue(target);
+    if(!this.parentControl.contains(field.key)) {
+      field.initControl()
+      this.parentControl.addControl(field.key, field.control);
+      
+      if(fields.length === 0) {
+        field.control.setValue(target);
+      }
     }
-    this.parentControl.addControl(field.key, field.control);
-
     const targetInjector = Injector.create({
       providers: [
         { provide: FORM_TARGET_TOKEN, useValue: target },
