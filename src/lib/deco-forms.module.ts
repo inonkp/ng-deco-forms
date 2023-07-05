@@ -9,6 +9,8 @@ import { ErrorPipe } from './pipes/error.pipe';
 import { DecoFieldDirective } from './directives/forms/deco-field.directive';
 import { ChangeDirective } from './directives/change.directive';
 import { SubmitDirective } from './directives/submit.directive';
+import { TargetGroupPipe } from './pipes/target-group.pipe';
+import { EagerlyDirective } from './directives/eagerly.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SubmitDirective } from './directives/submit.directive';
     ErrorPipe,
     DecoFieldDirective,
     SubmitDirective,
-    ChangeDirective
+    ChangeDirective,
+    TargetGroupPipe,
+    EagerlyDirective
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { SubmitDirective } from './directives/submit.directive';
     GroupComponent,
     DecoFormDirective,
     DecoFieldDirective,
-    ChangeDirective
+    ChangeDirective,
+    TargetGroupPipe,
+    EagerlyDirective
   ],
 })
 export class DecoFormsLibModule {

@@ -1,4 +1,4 @@
-import 'reflect-metadata';
+import { FormGroup } from '@angular/forms';
 import { DecoFormKeyedNode, DecoFormNode, DecoFormTarget } from './deco-form-node';
 import { InjectionToken } from "@angular/core";
 
@@ -14,6 +14,22 @@ export function collectFields(target: any): DecoFormKeyedNode[]{
     }
   }
 
+export function initTargetFormGroup(target: any, parentNode: DecoFormKeyedNode = null) {
+    const fields = collectFields(target);
+    if(fields.length === 0) {
+        parentNode.initControl();
+        parentNode.control.setValue(target);
+        return null;
+    }
+    const formGroup = parentNode?.control as FormGroup ?? new FormGroup({});
+    fields.forEach(field => {
+        field.initControl();
+        initTargetFormGroup(target[field.key], field);
+        formGroup.addControl(field.key, field.control);
+    });
+    return formGroup;
+}
+
 export function getFormTargetNode(target: any) {
     let t = Reflect.getMetadata('deco-target', target);
     return t;
@@ -25,12 +41,13 @@ export function getFormRoot(target: any): DecoFormTarget {
 
 
 
-export function getTargetToken(target: any) {
-    if(Reflect.hasMetadata(target.name + '-token', target) === false) {
-        const token = new InjectionToken<any>(target + "-token");
-        Reflect.defineMetadata(target.name + '-token', token, target);
+export function getTargetToken(target: any, subToken: string = "config") {
+    const tokenName = target.name + "-" + subToken + '-token';
+    if(Reflect.hasMetadata(tokenName, target) === false) {
+        const token = new InjectionToken<any>(tokenName);
+        Reflect.defineMetadata(tokenName, token, target);
     };
-    let t = Reflect.getMetadata(target.name + "-token", target);
+    let t = Reflect.getMetadata(tokenName, target);
     return t;
 }   
 
@@ -47,7 +64,8 @@ export function getNode(target: any, key: string): DecoFormTarget {
     if( key != "deco-target") {
         return getFormField(target, key);
     }
-    return getFormTarget(target);
+    const t = getFormTarget(target);
+    return t;
 }
 
 export function getFormField(target: any, key: string): DecoFormKeyedNode {
