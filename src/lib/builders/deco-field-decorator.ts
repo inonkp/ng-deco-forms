@@ -1,11 +1,12 @@
 import 'reflect-metadata';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { FactoryProvider, inject, InjectionToken, StaticProvider, ValueProvider, Inject } from '@angular/core';
+import { FactoryProvider, inject, InjectionToken, StaticProvider, ValueProvider, Inject, resolveForwardRef } from '@angular/core';
 import { GroupComponent } from '../core/group/group.component';
 import { DecoFormField, DecoFormGroup, DecoFormKeyedNode, DecoFormNode, DecoFormTarget } from './deco-form-node';
 import { fieldPrefix, getFormField, getFormTargetNode, getNode, getTargetToken } from './utils';
 import { Config, Field, FieldWrapper, Target } from './deco-forms-types';
 import { FIELD_CHANGE_TRACKING_TOKEN } from './deco-form-tokens';
+import { Observable, Subject } from 'rxjs';
 
 export function chain(funcs: ((target: any, key: string) => any | void)[]) {
     return (target: any, key: string) => {
@@ -122,7 +123,21 @@ export function rootFactory<T>(root: any, props: Partial<T> = {}) {
     }
 }
 
-export const Listen = (func: () => ((value: any) => void)) => Provide({provide: FIELD_CHANGE_TRACKING_TOKEN, useFactory: func});
+export function ProvideForTarget<T>(funct: () => T, key: string) {
+    return function (target: any, propertyKey: string = "deco-target") {
+        const field = getNode(target, "deco-target");
+        const token = getTargetToken(target, key);
+        field.providers.push({
+            provide: token,
+            useFactory: funct
+        })
+    }
+}
+
+export const Pusher = (func: () => Observable<any>) => 
+    ProvideForTarget(func, 'pusher');
+export const Listen = (func: () => Subject<any>) =>
+    ProvideForTarget(func, 'listener');
 export const Validator = (validator: ValidatorFn) => addValidator(validator)
 export const Form = (root: any = GroupComponent) => rootFactory(root);
 
