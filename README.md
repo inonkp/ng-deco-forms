@@ -3,6 +3,10 @@
 
 A forms library for Angular. Relying heavily on Angular's dependency injection mechanism makes this library incredibly flexible. Form fields are entirely described via Typescript decorators, making forms easier to maintain. Loosely inspired by Formly.
 
+# Under Development
+
+This package is under development, and may contain bugs.
+
 # Table of contents
 
 - [Angular Decorated Forms](#angular-decorated-forms)

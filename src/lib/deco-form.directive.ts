@@ -45,12 +45,12 @@ export class DecoFormDirective {
       parent: injector
     })
 
-    this.viweRef.createComponent(root.type,{
+    const rootComponent = this.viweRef.createComponent(root.type,{
       injector: injector, 
       environmentInjector: this.envInjector,
       projectableNodes: [[]],
     });
-
+    rootComponent.location.nativeElement.classList = root.classes;
     const submitter = injector.get(FORM_SUBMIT_TOKEN, null);
 
     this.submit$?.subscribe(() => {

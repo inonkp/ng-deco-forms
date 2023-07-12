@@ -30,7 +30,7 @@ export class DecoFormComponent {
   formGroup: FormGroup;
 
   constructor(@Optional() @Inject(ROOT_FORM_GROUP_TOKEN) private rootFormGroup: FormGroup,
-    @Inject(FORM_TARGET_TOKEN) target: any) {
+    @Optional() @Inject(FORM_TARGET_TOKEN) target: any) {
     this.formTarget = target;
     this.formGroup = rootFormGroup ?? new FormGroup({});
   }
