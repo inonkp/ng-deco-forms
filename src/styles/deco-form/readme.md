@@ -19,14 +19,14 @@ This custom styles have prefix "etsy-form-" and are ready for use at the project
 
 ## Complex classes
 
-### etsy-form-field-container-35
+### form-field-container-35
 
-Class ".etsy-form-field-container-35" designed for custom setting the width of the form field to 35%.
+Class ".form-field-container-35" designed for custom setting the width of the form field to 35%.
 
-### etsy-form-row-container
+### form-row-container
 
-Class ".etsy-form-row-container" designed to customize the row direction, line height and space between elements.
+Class ".form-row-container" designed to customize the row direction, line height and space between elements.
 
-### etsy-form-row-container-75
+### form-row-container-75
 
-Class ".etsy-form-row-container-75" designed to set the width of the etsy-form-row-container to 75%.
+Class ".form-row-container-75" designed to set the width of the form-row-container to 75%.
